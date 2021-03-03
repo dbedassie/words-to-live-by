@@ -1,0 +1,33 @@
+{
+  "name": "words-to-live-by",
+  "version": "1.0.0",
+  "description": "'A website where users can get advice to live by and post their own advice as well. Uses the Advice Slip JSON API.'",
+  "main": "./src/server.js",
+  "scripts": {
+    "start": "node ./src/server.js",
+    "pretest": "eslint ./src --fix",
+    "test": "echo \"Tests completed\"",
+    "nodemon": "nodemon -e js,html,css --watch ./src --watch ./hosted ./src/server.js",
+    "build": "babel ./client --out-file ./hosted/bundle.js",
+    "watch": "babel --watch ./client --out-file ./hosted/bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbedassie/words-to-live-by.git"
+  },
+  "author": "Durrell Bedassie",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/dbedassie/words-to-live-by/issues"
+  },
+  "homepage": "https://github.com/dbedassie/words-to-live-by#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.0",
+    "@babel/core": "^7.13.8",
+    "@babel/preset-env": "^7.13.9",
+    "eslint": "^7.21.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "nodemon": "^2.0.7"
+  }
+}
