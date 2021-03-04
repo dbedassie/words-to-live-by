@@ -34,7 +34,7 @@ const notFound = (request, response) => {
         id: 'notFound',
     };
 
-    return respondJSON(request, response, 404, responseJSON);
+    return respondJSON(request, response, 404, resJSON);
 };
 
 /*
@@ -60,10 +60,19 @@ const addAdvice = (request, response, body) => {
 };
 
 const getAdvice = (request, response) => {
-    
+    const resJSON = {
+        message: 'Advice data here.',
+        id: 'getAdvice',
+    };
+
+    return respondJSON(request, response, 200, resJSON);
 }
 
+const getAdviceMeta = (request, response) => { return respondJSONMeta(request, response, 200) };
+
 module.exports = {
+    getAdvice,
+    getAdviceMeta,
     notFound,
     notFoundMeta,
 };

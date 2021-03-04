@@ -1,0 +1,25 @@
+body {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+h1, h2, h3 {
+    font-family: 'Merriweather', serif;
+}
+
+#advice {
+    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+#advice div {
+    font-size: small;
+    text-align: center;
+    display: inline-block;
+    border-radius: 25px;
+    border: 2px solid black;
+    padding: 5px;
+    width: 200px;
+    height: 100px;
+}

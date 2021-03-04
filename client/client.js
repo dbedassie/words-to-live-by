@@ -1,5 +1,6 @@
 /* - Here is all of the js from client-side - */
 const adviceURL = 'https://api.adviceslip.com/advice';
+let previousAdvice = "";
 
 const getAdvice = () =>{
 
@@ -11,9 +12,13 @@ const dataLoaded = (e) => {
 
     console.dir(obj);
 
-    const advice = `<p>${obj.slip.advice}</p>\n`;
-    const body = document.querySelector('#advice');
-    body.innerHTML += advice;
+    const div = document.createElement('div');
+    div.className = 'adviceClass';
+    const advice = `<p>${obj.slip.advice}</p>`;
+    previousAdvice = advice;
+    div.innerHTML = advice;
+    //const body = document.querySelector('#advice');
+    document.querySelector('#advice').appendChild(div);
 };
 
 const getData = (url) => {
