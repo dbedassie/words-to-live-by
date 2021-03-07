@@ -29,7 +29,7 @@ const handlePost = (request, response, parsedUrl) => {
           const bodyString = Buffer.concat(body).toString();
           const bodyParams = query.parse(bodyString);
     
-          //jsonHandler.addUser(request, response, bodyParams);
+          jsonHandler.addAdvice(request, response, bodyParams);
         });
       }
 };

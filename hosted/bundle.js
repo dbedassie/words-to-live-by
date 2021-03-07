@@ -1,8 +1,7 @@
 /* - Here is all of the js from client-side - */
 const adviceURL = 'https://api.adviceslip.com/advice';
 let previousAdvice = "";
-
-const getAdvice = () => {};
+let addedAdvice = [];
 
 const dataLoaded = e => {
   const xhr = e.target;
@@ -12,8 +11,7 @@ const dataLoaded = e => {
   div.className = 'adviceClass';
   const advice = `<p>${obj.slip.advice}</p>`;
   previousAdvice = advice;
-  div.innerHTML = advice; //const body = document.querySelector('#advice');
-
+  div.innerHTML = advice;
   document.querySelector('#advice').appendChild(div);
 };
 
@@ -30,8 +28,7 @@ const getData = url => {
 };
 
 const onSearch = e => {
-  let search = adviceURL; //let searchTerms = document.querySelector('#searchBar').value;
-
+  let search = adviceURL;
   getData(search);
 };
 

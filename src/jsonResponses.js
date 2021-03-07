@@ -1,4 +1,5 @@
 const userAdvice = {};
+let count = 0;
 
 /*
     - Helper function for GET requests.
@@ -24,6 +25,22 @@ const respondJSONMeta = (request, response, status) => {
     response.writeHead(status, headers);
     response.end();
 };
+
+const addAdvice = (request, response, body) =>{
+    const resJSON = {
+        message: 'Advice is required!',
+    };
+
+    if(!body.advice) {
+        resJSON.id = 'missingParams';
+        return respondJSON(request, response, 400, resJSON);
+    } else {
+        userAdvice[count].advice = body.advice;
+        resJSON.message = 'Created Successfully';
+        return respondJSON(request, response, 201, resJSON);
+    }
+};
+
 
 /*
     - The GET request function for 404.
