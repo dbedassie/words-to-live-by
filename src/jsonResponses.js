@@ -41,7 +41,6 @@ const addAdvice = (request, response, body) =>{
     }
 };
 
-
 /*
     - The GET request function for 404.
 */
@@ -61,21 +60,6 @@ const notFoundMeta = (request, response) => {
     return respondJSONMeta(request, response, 404);
 };
 
-const addAdvice = (request, response, body) => {
-    const resJSON = {
-        message: 'You need to type in some advice!',
-        id: 'addAdvice',
-    };
-
-    if(!body.advice){
-        resJSON.id = 'missingParams';
-        return respondJSON(request, response, 400, resJSON);
-    }
-    
-    resJSON.message = 'Advice created successfully';
-    return respondJSON(request, response, 201, resJSON);
-};
-
 const getAdvice = (request, response) => {
     const resJSON = {
         message: 'Advice data here.',
@@ -88,6 +72,7 @@ const getAdvice = (request, response) => {
 const getAdviceMeta = (request, response) => { return respondJSONMeta(request, response, 200) };
 
 module.exports = {
+    addAdvice,
     getAdvice,
     getAdviceMeta,
     notFound,
