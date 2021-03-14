@@ -15,12 +15,16 @@
                 <h3>Daily Advice Whenever You Need It!</h3>
             </div>
             <div id='userInput'>
-                <label for="text">Type in your own advice to post to the page!</label>
-                <input type="text" id='textBar'>
-                <label for='send'>Send</label>
-                <input type='button' id='sendBtn'>
-                <label for='moreAdvice'>Search</label>
-                <input type='button' id='moreAdvice'>
+                <form id="adviceForm" action="/addAdvice" method="post">
+                    <label for="adviceIndex">Label: </label>
+                    <input id="indexField" type="text" name="adviceIndex" />
+                    <label for="userAdvice">Advice: </label>
+                    <input id="adviceField" type="text" name="userAdvice"/>
+                    <input type="submit" value="Add Advice" />
+                </form>
+                <form id='searchAdvice'>
+                    <input id='searchBtn' type='button' value='Search Random Advice'>
+                </form>
             </div>
             <br>
             <div id='advice'>
