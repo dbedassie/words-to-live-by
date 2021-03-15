@@ -37,7 +37,7 @@ const addAdvice = (request, response, body) => {
 
   let responseCode = 201;
 
-  if(userAdvice[body.index]) {
+  if (userAdvice[body.index]) {
     responseCode = 204;
   } else {
     userAdvice[body.index] = {};

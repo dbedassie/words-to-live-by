@@ -9,30 +9,38 @@
         <script src='/bundle.js'></script>
     </head>
     <body>
+        <div id='sidebar'>
+            <a href='javascript:void(0)' class='closeBtn' onclick='closeNav()'>&#9776; Close Sidebar</a>
+            <br> <br>
+            <form id='searchAdvice'>
+                <input id='searchBtn' type='button' value='Search Random Advice'>
+            </form>
+                <div class='adviceClass' onclick="addAdvice()">
+                    <p id='currentAdvice'>Remember to keep calm and breathe. In and out, slowly :)</p>
+                </div>
+                <p id='footer'>Durrell Bedassie &copy; 2021 </p>
+        </div>
         <main>
             <div id='title'>
                 <h1>Words to Live By</h1>
-                <h3>Daily Advice Whenever You Need It!</h3>
+                <h3>Your Own Personal Advice Chalkboard</h3>
             </div>
-            <div id='userInput'>
-                <form id="adviceForm" action="/addAdvice" method="post">
-                    <label for="adviceIndex">Label: </label>
-                    <input id="indexField" type="text" name="adviceIndex" />
-                    <label for="userAdvice">Advice: </label>
-                    <input id="adviceField" type="text" name="userAdvice"/>
-                    <input type="submit" value="Add Advice" />
-                </form>
-                <form id='searchAdvice'>
-                    <input id='searchBtn' type='button' value='Search Random Advice'>
-                </form>
-            </div>
+                <button class="openBtn" onclick="openNav()">&#9776; Open Sidebar</button>
+                
+                <div id='userInput'>
+                    <form id="adviceForm" action="/addAdvice" method="post">
+                        <label for="adviceIndex">Label: </label>
+                        <input id="indexField" type="text" name="adviceIndex" />
+                        <label for="userAdvice">Advice: </label>
+                        <input id="adviceField" type="text" name="userAdvice"/>
+                        <input type="submit" value="Add Advice" />
+                    </form>
             <br>
             <div id='advice'>
-                <div class='adviceClass'>
-                    <p>Remember to keep calm and breathe. In and out, slowly :)</p>
-                </div>
+                <p id='startText'>Your advice will go here! Click on a generated advice in the 
+                    sidebar to add it here, or enter in your own!</p>
             </div>
         </main>
-        <footer>Durrell Bedassie &copy; 2021 </footer>
+        
     </body>
 </html>

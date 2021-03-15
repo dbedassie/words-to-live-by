@@ -41,6 +41,8 @@ const handlePost = (request, response, parsedUrl) => {
 const handleHead = (request, response, parsedUrl) => {
   if (parsedUrl.pathname === '/notFound') {
     jsonHandler.notFoundMeta(request, response);
+  } else {
+    jsonHandler.notFoundMeta(request, response);
   }
 };
 
@@ -48,14 +50,16 @@ const handleHead = (request, response, parsedUrl) => {
     - Handler for GET requests.
 */
 const handleGet = (request, response, parsedUrl) => {
-  if (parsedUrl.pathname === '/style.css') {
+  if(parsedUrl.pathname === '/') {
+    htmlHandler.getIndex(request, response);
+  } else if (parsedUrl.pathname === '/style.css') {
     htmlHandler.getCSS(request, response);
   } else if (parsedUrl.pathname === '/notFound') {
     jsonHandler.notFound(request, response);
   } else if (parsedUrl.pathname === '/bundle.js') {
     htmlHandler.getBundle(request, response);
   } else {
-    htmlHandler.getIndex(request, response);
+    jsonHandler.notFound(request, response);
   }
 };
 
