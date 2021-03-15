@@ -5,58 +5,42 @@ const adviceList = {};
 const dataLoaded = e => {
   const xhr = e.target;
   const obj = JSON.parse(xhr.responseText);
-  console.dir(obj);
-  /*
-  const div = document.createElement('div');
-  div.className = 'adviceClass';
-  const advice = `<p>${obj.slip.advice}</p>`;
-  previousAdvice = advice;
-  div.innerHTML = advice;
-  document.querySelector('#advice').appendChild(div);
-  */
-
   const text = document.querySelector('#currentAdvice');
   text.innerHTML = `${obj.slip.advice}`;
 };
 
 const handleResponse = (xhr, parseResponse) => {
-  const content = document.querySelector('#content');
+  const warning = document.querySelector('#warning');
 
   switch (xhr.status) {
     case 200:
-      //content.innerHTML = '<b>Success!</b>';
-      alert('Success!');
+      warning.innerHTML = "";
       break;
 
     case 201:
-      //content.innerHTML = '<b>Created!</b>';
-      alert('Created!');
+      warning.innerHTML = "Created!";
       break;
 
     case 204:
-      //content.innerHTML = '<b>Updated (No Content)!</b>';
-      alert('Updated!');
+      warning.innerHTML = "Updated!";
       break;
 
     case 400:
-      //content.innerHTML = '<b>Bad Request</b>';
-      alert('Bad Request!');
+      warning.innerHTML = "Bad Request: Missing Params!";
       break;
 
     case 404:
-      //content.innerHTML = '<b>Resource Not Found</b>';
-      alert('not found');
+      warning.innerHTML = "Resource Not Found";
       break;
 
     default:
-      content.innerHTML = '<p>Error code not implemented by client</p>';
+      warning.innerHTML = "Error code not implemented";
       break;
   }
 
   if (parseResponse) {
     const obj = JSON.parse(xhr.response);
-    console.dir(obj);
-    content.innerHTML += `<p>${xhr.response}</p>`;
+    warning.innerHTML = `${xhr.response}`;
   } else {
     return;
   }
@@ -106,7 +90,11 @@ const postAdvice = (e, adviceForm) => {
 
   const formData = `advice=${advice.value}&index=${index.value}`;
   xhr.send(formData);
-  addUserAdvice(index.value, advice.value);
+
+  if (index.value != "" && advice.value != "") {
+    addUserAdvice(index.value, advice.value);
+  }
+
   return false;
 }; // Adds user inputted advice to screen, and checks to see if content needs to be updated
 // on client-side.
@@ -122,7 +110,6 @@ const addUserAdvice = (index, advice) => {
 
       if (check[0] === `<h4>${index}`) {
         currentAdvice[i].innerHTML = `<h4>${index}</h4><br><p>${advice}</p>`;
-        console.log(currentAdvice[i].innerHTML);
       }
     }
   } else {

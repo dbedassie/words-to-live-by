@@ -30,7 +30,8 @@ const addAdvice = (request, response, body) => {
     message: 'Advice is required!',
   };
 
-  if (!body.advice && !body.index) {
+  if (!body.advice || !body.index) {
+    console.dir(`Advice: ${body.advice}, Index: ${body.index}`);
     resJSON.id = 'missingParams';
     return respondJSON(request, response, 400, resJSON);
   }

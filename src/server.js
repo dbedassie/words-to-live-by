@@ -50,7 +50,7 @@ const handleHead = (request, response, parsedUrl) => {
     - Handler for GET requests.
 */
 const handleGet = (request, response, parsedUrl) => {
-  if(parsedUrl.pathname === '/') {
+  if (parsedUrl.pathname === '/') {
     htmlHandler.getIndex(request, response);
   } else if (parsedUrl.pathname === '/style.css') {
     htmlHandler.getCSS(request, response);

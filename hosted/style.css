@@ -1,12 +1,12 @@
 body {
     height: 100%;
     width: 100%;
-    background: linear-gradient(#81B29A 20%, #3D405B 80%);
+    background: #364156;
     background-repeat: no-repeat;
     background-attachment: fixed;
     text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    color: #F4F1DE;
+    font-family: 'Pangolin', cursive;
+    color: #E8E9EB;
     text-shadow: 1px 1px black;
     display: block;
 }
@@ -24,10 +24,7 @@ body {
     text-align: center;
     height: 180px;
     width: 300px;
-}
-
-h1, h2, h3 {
-    font-family: 'Merriweather', serif;
+    font-family: 'Raleway', sans-serif;
 }
 
 #main {
@@ -47,36 +44,44 @@ h1, h2, h3 {
     overflow-x: hidden; /* Disable horizontal scroll */
     padding-top: 60px; /* Place content 60px from the top */
     transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
-    text-align: left;
+    text-align: center;
+}
+
+#searchBtn {
+    font-size: 12px;
+    font-family: 'Pangolin', cursive;
+    size: 10em;
 }
 
 .adviceClass {
-    border: 2px 2px solid white;
+    border: 2px 2px solid #FFEB3B;
 }
 
-#sidebar .closebtn {
+#sidebar .closeBtn {
+    color: #F1F1F1;
     position: absolute;
     top: 0;
-    right: 25px;
-    font-size: 36px;
-    margin-left: 50px;
+    left: 25px;
     size: 5em;
   }
 
-#sidebar .closebtn a:hover {
-    color: #f1f1f1;
+#sidebar .closeBtn:hover {
+    color: #444;
 }
 
-.openbtn {
-    font-size: 20px;
+.openBtn {
+    font-size: 17px;
     cursor: pointer;
-    background-color: #111;
+    background: #364156;
     color: white;
     padding: 10px 15px;
     border: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
   
-.openbtn:hover {
+.openBtn:hover {
     background-color: #444;
 }
 
